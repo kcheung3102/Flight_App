@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
+    <link  rel="stylesheet" type="text/css" th:href="@{/style.css}">
+</head>
+<body>
+<nav th:replace="base :: navbar"></nav>
+
+      <div class="container container-form">
+          <div class="card border-0 shadow my-5">
+              <div class="card-body">
+                  <h1 class="header-text">Flight Form</h1>
+                <form action="#" th:action="@{/add}" th:object="${flight}" method="post" enctype="multipart/form-data">
+                    <input type="hidden" th:field="*{id}" />
+                    <!-- Material input -->
+                    <div class="input md-form form-group mt-5">
+                        <input type="text"th:field="*{departingAirport}" class="form-control" id="formGroupExampleInputMD" placeholder="Departing from....."/>
+                        <span th:if="${#fields.hasErrors('departingAirport')}"
+                              th:errors="*{departingAirport}"></span><br />
+                        <label class="text-primary">Departure Airport</label>
+                    </div>
+                    <!-- Material input -->
+                    <div class="input md-form form-group mt-5">
+                        <input type="text" th:field="*{arrivingAirport}" class="form-control" id="formGroupExampleInput2MD" placeholder="Another input"/>
+                        <span th:if="${#fields.hasErrors('arrivingAirport')}"
+                              th:errors="*{arrivingAirport}"></span><br />
+                        <label class="text-primary">Arrival Airport</label>
+                    </div>
+                    <div class="input md-form form-group mt-5">
+                        <input type="text" th:field="*{type}" class="form-control" id="formGroupExampleInput3MD" placeholder="Only 1 way"/>
+                        <span th:if="${#fields.hasErrors('type')}"
+                              th:errors="*{type}"></span><br />
+                        <label class="text-primary">Type</label>
+                    </div>
+                    <div class="input md-form form-group mt-5">
+                        <input type="text" th:field="*{price}" class="form-control" id="formGroupExampleInput4MD" placeholder="Another input">
+                        <span th:if="${#fields.hasErrors('price')}"
+                              th:errors="*{price}"></span><br />
+                        <label class="text-primary">Price</label>
+                    </div>
+                    <div class="input md-form form-group mt-5">
+                        <input type="text" th:field="*{date}" class="form-control" id="formGroupExampleInput5MD" placeholder="Another input">
+                        <span th:if="${#fields.hasErrors('date')}"
+                              th:errors="*{date}"></span><br />
+                        <label class="text-primary">Date</label>
+                    </div>
+                    <div class="input md-form form-group mt-5">
+                        <input type="text" th:field="*{flightNum}" class="form-control" id="formGroupExampleInput6MD" placeholder="Another input">
+                        <span th:if="${#fields.hasErrors('flightNum')}"
+                              th:errors="*{flightNum}"></span><br />
+                        <label class="text-primary">Flight #</label>
+                    </div>
+                    <div class="input md-form form-group mt-5">
+                        <input type="text" th:field="*{airline}" class="form-control" id="formGroupExampleInput7MD" placeholder="Another input">
+                        <span th:if="${#fields.hasErrors('airline')}"
+                              th:errors="*{airline}"></span><br />
+                        <label class="text-primary">Airline</label>
+                    </div>
+                    <div class="file-field">
+                        <div class="btn btn-primary btn-sm float-left waves-effect waves-light">
+                            <span>Choose file</span>
+                            <input type="file">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Upload your file">
+                        </div>
+                    </div>
+
+                    <!-- Send button -->
+                    <button class="btn-primary btn-sm " type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+      </div>
+
+
+
+    <footer th:replace="base :: footer"></footer>
+
+
+
+
+
+
+
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
+</body>
+</html>
