@@ -40,6 +40,15 @@ public class Flight {
     @Size(min = 5)
     private String airline;
 
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public long getId() {
         return id;
